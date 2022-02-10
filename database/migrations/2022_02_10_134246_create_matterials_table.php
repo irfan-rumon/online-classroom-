@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('matterials', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('course_id')->nullable();
+            $table->string('material')->nullable();
         });
     }
 
