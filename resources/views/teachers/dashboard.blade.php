@@ -17,10 +17,10 @@
                                 <div class="collapse navbar-collapse" id="navbarNav">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                    <a class="nav-link" href="#">My classes</a>
+                                    <a class="nav-link" href="/show-classes">My classes</a>
                                     </li>
                                     <li class="nav-item">
-                                    <a class="nav-link" href="#">Create a New Class</a>
+                                    <a class="nav-link" href="/create-class">Create a New Class</a>
                                     </li>
                                     
                                 </ul>
