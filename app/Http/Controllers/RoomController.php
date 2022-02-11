@@ -30,4 +30,9 @@ class RoomController extends Controller
         $classes = DB::table('rooms')->where('teacher_id', Auth::user()->id )->get();
         return view('teachers.showClasses', ['classes'=>$classes]);
     }
+
+    public function enter($id)
+    {
+        return view('rooms.enter', ['class_id' => $id]);
+    }
 }
