@@ -23,16 +23,17 @@
             </div>
 
             
+
            
 
             <div>
                 <x-jet-label for="role" value="{{ __('role') }}" />
                 <select id="role"  class="block mt-1 w-full" name="role">
 
-                <option value="customer"  >
+                <option value="teacher"  >
                        Teacher
                 </option>
-                <option value="electrician">
+                <option value="student">
                        Student
                 </option>
                 
