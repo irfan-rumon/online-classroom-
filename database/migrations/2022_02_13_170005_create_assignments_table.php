@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('assignments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('room_code');
+            $table->string('room_id');
             $table->string('question');
         });
     }
