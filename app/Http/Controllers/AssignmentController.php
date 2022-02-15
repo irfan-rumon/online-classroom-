@@ -7,15 +7,15 @@ use App\Models\Assignment;
 
 class AssignmentController extends Controller
 {
-    public function create()
+    public function create($room_id)
     {
-        return view('assignments.create');
+        return view('assignments.create', ['room_id' => $room_id]);
     }
 
-    public function store(Request $request)
+    public function store($room_id, Request $request)
     {
-        $assignment = new Assignmet;
-        $assignment->room_code = $request->room_code;
+        $assignment = new Assignment;
+        $assignment->room_id = $room_id;
         $assignment->question = $request->question;
         $assignment->save();
 
