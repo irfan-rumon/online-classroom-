@@ -27,6 +27,6 @@ Route::get('/room/create', [RoomController::class, 'create'])->middleware('auth'
 Route::get('/assignment/create', [AssignmentController::class, 'create'])->middleware('auth');
 Route::get('/post/create', [PostController::class, 'create'])->middleware('auth');
 
-Route::get('/room/store', [RoomController::class, 'store'])->middleware('auth');
-Route::get('/assignment/store', [AssignmentController::class, 'store'])->middleware('auth');
-Route::get('/post/store', [PostController::class, 'store'])->middleware('auth');
+Route::post('/room/store/{teacher_id}', [RoomController::class, 'store'])->middleware('auth');
+Route::post('/assignment/store', [AssignmentController::class, 'store'])->middleware('auth');
+Route::post('/post/store', [PostController::class, 'store'])->middleware('auth');
