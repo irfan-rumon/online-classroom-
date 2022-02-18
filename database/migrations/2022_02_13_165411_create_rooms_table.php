@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('teacher_id');
+            $table->string('room_name');
             $table->string('room_code');
         });
     }

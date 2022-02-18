@@ -12,7 +12,14 @@
 <form action="{{ url('room/store', $teacher_id)  }}" method="POST">
   @csrf
   <div class="mb-3">
+    <label for="room_code" class="form-label">Room Name:</label>
+    <input type="text" class="form-control" id="room_name" name="room_name" aria-describedby="room_name">
+    
+    
+  </div>
+  <div class="mb-3">
     <label for="room_code" class="form-label">Room Code:</label>
+   
     <input type="text" class="form-control" id="room_code" name="room_code" aria-describedby="room_code">
     
   </div>

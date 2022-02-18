@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Room;
 
 class RoomController extends Controller
@@ -17,6 +18,7 @@ class RoomController extends Controller
     {
         $room = new Room;
         $room->teacher_id = $teacher_id;
+        $room->room_name = $request->room_name;
         $room->room_code = $request->room_code;
         $room->save();
 
