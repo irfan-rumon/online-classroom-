@@ -62,20 +62,7 @@
 
         <!-- Page Content  -->
     <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">Welcome Sir, {{Auth::user()->name}}</h2>
         
-        <div class="d-inline-flex justify-content-center">
-        @foreach($rooms as $room)
-            <div class="card mx-4" style="width: 18rem; background-color: #98FB98;">
-                <div class="card-body">
-                    <h3 class="card-title">{{  $room->room_name }}</h3>
-                    
-                    <a href="{{url('room', $room->id) }}" class="card-link">Enter</a>
-                    
-                </div>
-            </div>
-        @endforeach 
-        </div>   
     </div>
         
       </div>

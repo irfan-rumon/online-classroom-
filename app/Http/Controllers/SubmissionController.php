@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -28,5 +29,11 @@ class SubmissionController extends Controller
 
        $submission->save();
        return redirect('/dashboard');
+    }
+
+    public function check($assignment_id)
+    {
+        $submissions = DB::table('submissions')->where('assignment_id', $assignment_id)->get();
+        return view('assignments.check', ['submissions' => $submissions]);
     }
 }

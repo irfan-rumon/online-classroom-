@@ -62,20 +62,31 @@
 
         <!-- Page Content  -->
     <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">Welcome Sir, {{Auth::user()->name}}</h2>
+        <h2 class="mb-4">Assignmets</h2>
         
-        <div class="d-inline-flex justify-content-center">
-        @foreach($rooms as $room)
-            <div class="card mx-4" style="width: 18rem; background-color: #98FB98;">
-                <div class="card-body">
-                    <h3 class="card-title">{{  $room->room_name }}</h3>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Question</th>
+                    <th scope="col">Check</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $cnt = 1; ?>
+                   
+                    @foreach( $hws as $hw){
                     
-                    <a href="{{url('room', $room->id) }}" class="card-link">Enter</a>
-                    
-                </div>
-            </div>
-        @endforeach 
-        </div>   
+                        <tr>
+                            <th scope="row">{{ $cnt }}</th>
+                            <td>{{ $hw->question }}</td>
+                            <td><a class="btn btn-primary" href="{{url('check', $hw->id )}}" role="button">Check</a></td>
+                            
+                        </tr>
+                        <?php $cnt++; ?>
+                    @endforeach    
+            </tbody>
+        </table>
     </div>
         
       </div>

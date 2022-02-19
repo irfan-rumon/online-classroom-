@@ -33,3 +33,8 @@ Route::post('/room/store/{teacher_id}', [RoomController::class, 'store'])->middl
 Route::post('/assignment/store/{room_id}', [AssignmentController::class, 'store'])->middleware('auth');
 Route::post('/post/store/{room_id}', [PostController::class, 'store'])->middleware('auth');
 Route::post('/submission/store/{assignment_id}', [SubmissionController::class, 'store'])->middleware('auth');
+
+Route::get('/room/{id}', [RoomController::class, 'enter'])->middleware('auth');
+Route::get('/posts/view/{room_id}', [PostController::class, 'view'])->middleware('auth');
+Route::get('/assignments/view/{room_id}', [AssignmentController::class, 'view'])->middleware('auth');
+Route::get('/check/{assignment_id}', [SubmissionController::class, 'check'])->>middleware('auth');
