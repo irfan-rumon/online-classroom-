@@ -36,5 +36,10 @@ Route::post('/submission/store/{assignment_id}', [SubmissionController::class, '
 
 Route::get('/room/{id}', [RoomController::class, 'enter'])->middleware('auth');
 Route::get('/posts/view/{room_id}', [PostController::class, 'view'])->middleware('auth');
+
 Route::get('/assignments/view/{room_id}', [AssignmentController::class, 'view'])->middleware('auth');
-Route::get('/check/{assignment_id}', [SubmissionController::class, 'check'])->>middleware('auth');
+Route::get('/assignments/view/my-score/{room_id}', [SubmissionController::class, 'myscore'])->middleware('auth');
+Route::get('/check/{assignment_id}', [SubmissionController::class, 'check'])->middleware('auth');
+
+Route::get('/join/{id}', [UserController::class, 'join'])->middleware('auth');
+Route::post('/join/verify/{student_id}', [RoomController::class, 'verify'])->middleware('auth');

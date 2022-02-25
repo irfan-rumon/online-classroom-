@@ -13,8 +13,19 @@ class AssignmentController extends Controller
 {
     public function view($room_id)
     {
-      $hws = DB::table('assignments')->where('room_id', $room_id)->get(['question', 'id']);
-      return view('assignments.view', ['hws'=>$hws]);
+        if( Auth::user()->role == 'student')
+        {
+            $hws = DB::table('assignments')->where('room_id', $room_id)->get(['question', 'id']);
+            return view('students.assignments', ['hws'=>$hws]);
+        }
+        if( Auth::user()->role == 'teacher')
+        {
+            $hws = DB::table('assignments')->where('room_id', $room_id)->get(['question', 'id']);
+            return view('teachers.assignments', ['hws'=>$hws]);
+        }
+
+     
+      
     }
     public function create($room_id)
     {

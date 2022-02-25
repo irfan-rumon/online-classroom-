@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Student Dashboard</title>
+  	<title>Teacher Dashboard</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -20,18 +20,25 @@
 	          <span class="sr-only">Toggle Menu</span>
 	        </button>
         </div>
-				<div class="p-4">
-		  		<h1><a href="index.html" class="logo">Portfolic <span>Portfolio Agency</span></a></h1>
+		<div class="p-4">
+		  	<h1><a href="index.html" class="logo">Portfolic <span>Portfolio Agency</span></a></h1>
 	        <ul class="list-unstyled components mb-5">
 	          <li class="active">
 	            <a href="{{ url('dashboard') }}"><span class="fa fa-home mr-3"></span>My Classes</a>
 	          </li>
 	          <li>
-	              <a href="{{ url('join', Auth::user()->id) }}"><span class="fa fa-user mr-3"></span>Join a new class</a>
+	              <a href="{{ url('room/create') }}"><span class="fa fa-user mr-3"></span>Create a new class</a>
 	          </li>
-	          
-	          
-	          
+              <li>
+                <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a style="margin-left: 25px;" href="{{ route('logout') }}"
+                                         onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </a>
+                </form>
+              </li> 
 	        </ul>
 
 	        <div class="mb-5">
@@ -54,24 +61,40 @@
     	</nav>
 
         <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">Welcome Sir, {{Auth::user()->name}}</h2>
-
-		<div class="d-inline-flex justify-content-center">
-        @foreach($rooms as $room)
-            <div class="card mx-4" style="width: 18rem; background-color: #98FB98;">
-                <div class="card-body">
-                    <h3 class="card-title">{{  $room->room_name }}</h3>
-                    
-                    <a href="{{url('room', $room->id) }}" class="card-link">Enter</a>
-                    
-                </div>
-            </div>
-        @endforeach 
-        </div> 
+    <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">Class: {{$room_name}}</h2>
         
-      </div>
-		</div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                
+                
+                <div>
+                    <ul class="nav flex-column">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('posts/view', $id)}}">View study Materials</a>
+                    </li>
+                    
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('assignments/view', $id)}}">View Assignments</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('assignments/view/my-score', $id)}}">View My Assignment Score</a>
+                    </li>
+
+                   
+
+                    
+                    
+                    </ul>
+                </div>
+        </nav>
+
+    </div>
+        
+    </div>
+   </div>
 
     <script src="/page-template/js/jquery.min.js"></script>
     <script src="/page-template/js/popper.js"></script>

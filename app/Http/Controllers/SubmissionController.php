@@ -36,4 +36,12 @@ class SubmissionController extends Controller
         $submissions = DB::table('submissions')->where('assignment_id', $assignment_id)->get();
         return view('assignments.check', ['submissions' => $submissions]);
     }
+
+    public function myscore($room_id)
+    {
+        $hw_ids = DB::table('assignments')->where('room_id', $room_id)->pluck('id');
+       
+        $hw =  DB::table('submissions')->where('student_id', Auth::user()->id)->whereIn('assignment_id', $hw_ids)->get();
+        return view('students.hw_score', ['hws'=>$hw]);
+    }
 }

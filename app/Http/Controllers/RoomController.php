@@ -9,6 +9,7 @@ use App\Models\Room;
 use App\Models\Assignment;
 use App\Models\Post;
 use App\Models\Submission;
+use App\Models\StudentsEnrollment;
 
 class RoomController extends Controller
 {
@@ -38,6 +39,19 @@ class RoomController extends Controller
             return view('teachers.enter', ['questions' => $assignment_questions,'posts' => $posts, 'room_name' => $room_name, 'id'=>$id] );   
         else if(Auth::user()->role == 'student')
             return view('students.enter', ['question' => $assignment_questions,'posts' => $posts, 'room_name' => $room_name, 'id'=>$id] );    
+
+    }
+
+    public function verify($student_id,  Request $request)
+    {
+        $room_id = DB::table('rooms')->where('room_code', $request->room_code)->value('id');
+        
+        $st_enrollment = new StudentsEnrollment;
+        $st_enrollment->room_id = $room_id;
+        $st_enrollment->student_id = $student_id;
+        $st_enrollment->save();
+
+        return redirect('/dashboard');
 
     }
 }
