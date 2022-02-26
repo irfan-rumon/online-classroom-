@@ -29,6 +29,16 @@
 	          <li>
 	              <a href="{{ url('join', Auth::user()->id) }}"><span class="fa fa-user mr-3"></span>Join a new class</a>
 	          </li>
+			  <li>
+                <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a style="margin-left: 25px;" href="{{ route('logout') }}"
+                                         onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </a>
+                </form>
+              </li>
 	          
 	          
 	          

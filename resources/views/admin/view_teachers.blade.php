@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Teacher Dashboard</title>
+  	<title>Admin Dashboard</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -9,6 +9,9 @@
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/page-template/css/style.css">
+
+        
+    </style>
   </head>
   <body>
 		
@@ -20,25 +23,31 @@
 	          <span class="sr-only">Toggle Menu</span>
 	        </button>
         </div>
-		<div class="p-4">
-		  	<h1><a href="index.html" class="logo">Portfolic <span>Portfolio Agency</span></a></h1>
-	        <ul class="list-unstyled components mb-5">
-	          <li class="active">
-	            <a href="{{ url('dashboard') }}"><span class="fa fa-home mr-3"></span>My Classes</a>
+				<div class="p-4">
+		  		<h1><a href="index.html" class="logo">Portfolic <span>Portfolio Agency</span></a></h1>
+                  <ul class="list-unstyled components mb-5">
+			<li class="active">
+	            <a href="{{url('dashboard')}}"><span class="fa fa-home mr-3"></span>Dashboard</a>
+	            </li>   
+			<li class="active">
+	            <a href="{{url('view/teachers')}}"><span class="fa fa-home mr-3"></span>View Teachers</a>
 	          </li>
-	          <li>
-	              <a href="{{ url('room/create') }}"><span class="fa fa-user mr-3"></span>Create a new class</a>
+	          <li class="active">
+                 <a href="{{url('view/students')}}"><span class="fa fa-home mr-3"></span>View Students</a>
+	          </li>
+			  <li class="active">
+                 <a href="{{url('view/courses')}}"><span class="fa fa-home mr-3"></span>View Courses</a>
 	          </li>
               <li>
-                <form method="POST" action="{{ route('logout') }}">
+              <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <a style="margin-left: 25px;" href="{{ route('logout') }}"
                                          onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </a>
-                </form>
-              </li> 
+    </form>
+              </li>
 	        </ul>
 
 	        <div class="mb-5">
@@ -61,21 +70,37 @@
     	</nav>
 
         <!-- Page Content  -->
-    <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">Welcome Sir, {{Auth::user()->name}}</h2>
-        
-        <form action="{{ url('assignment/store', $room_id)  }}" method="POST">
-          @csrf
-          <div class="mb-3">
-            <label for="question" class="form-label">Question::</label>
-            <input type="text" class="form-control" id="question" name="question" aria-describedby="question">
-            
-          </div>
-        
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-  
-    </div>
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <h2 class="mb-4">Teachers:</h2>
+        <table class="table">
+                    <thead>
+                        <tr>
+                      
+                        <th scope="col">Teacher Name</th>
+                        <th scope="col">Email</th>
+                       
+                        
+                        <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    @foreach( $teachers as $teacher)
+                    
+                            <tbody>
+                                <tr>
+                            
+                                <td>{{ $teacher->name }}</td>
+                                <td>{{ $teacher->email }}</td>
+                                
+                                
+                                <td> 
+                                  <a class="btn btn-danger" href="{{ url('delete/teacher', [ $teacher->id]) }}" role="button">Delete</a>
+                                 
+                                </tr>
+                            </tbody>
+                         
+                    @endforeach        
+        </table>
+       
         
       </div>
 		</div>

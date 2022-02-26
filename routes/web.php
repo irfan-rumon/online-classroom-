@@ -49,3 +49,11 @@ Route::post('/answer/store/{id}', [SubmissionController::class, 'store'])->middl
 
 Route::get('/answer/{id}', [SubmissionController::class, 'answer'])->middleware('auth');
 Route::get('/give-score/{id}', [SubmissionController::class, 'giveScore'])->middleware('auth');
+
+Route::get('/view/teachers', [UserController::class, 'view_teachers'])->middleware('auth');
+Route::get('/view/courses', [RoomController::class, 'view_courses'])->middleware('auth');
+Route::get('/view/students', [UserController::class, 'view_students'])->middleware('auth');
+
+Route::get('/delete/teacher/{id}', [UserController::class, 'delete_teacher'])->middleware('auth');
+Route::get('/delete/course/{id}' ,[RoomController::class, 'delete_course'])->middleware('auth');
+Route::get('/delete/student/{id}', [UserController::class, 'delete_student'])->middleware('auth');

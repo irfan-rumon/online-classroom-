@@ -51,7 +51,7 @@ class SubmissionController extends Controller
         $submission->score = 0; 
         $submission->save();
 
-        return redirect('/dashboard');
+        return redirect()->back();
     }
 
     public function score_store($sheet_id, Request $request)
@@ -62,7 +62,7 @@ class SubmissionController extends Controller
         $submission->score = $request->score; 
         $submission->save();
 
-        return redirect('/dashboard');
+        return redirect()->back();
     }
 
     public function giveScore($sheet_id)

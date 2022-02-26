@@ -26,7 +26,7 @@ class RoomController extends Controller
         $room->room_code = $request->room_code;
         $room->save();
 
-        return redirect('/dashboard');
+        return redirect()->back();
     }
 
     public function enter( $id )
@@ -51,7 +51,20 @@ class RoomController extends Controller
         $st_enrollment->student_id = $student_id;
         $st_enrollment->save();
 
-        return redirect('/dashboard');
+        return redirect()->back();
 
+    }
+
+    public function view_courses()
+    {
+      $courses = Room::all();
+      return view('admin.view_courses', ['courses'=>$courses]);
+    }
+
+    public function delete_course($id)
+    {
+        $course = Room::find($id);
+        $course->delete(); 
+        return redirect()->back();
     }
 }

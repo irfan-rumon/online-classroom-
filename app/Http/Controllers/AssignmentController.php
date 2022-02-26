@@ -39,6 +39,6 @@ class AssignmentController extends Controller
         $assignment->question = $request->question;
         $assignment->save();
 
-        return redirect('/dashboard');
+        return redirect()->back();
     }
 }

@@ -28,7 +28,6 @@ class PostController extends Controller
         $post->topic = $request->topic;
         $post->contents = $request->contents;
         $post->save();
-
-        return redirect('/dashboard');
+        return redirect()->back();
     }
 }
