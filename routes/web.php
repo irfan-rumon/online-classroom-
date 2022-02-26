@@ -43,3 +43,9 @@ Route::get('/check/{assignment_id}', [SubmissionController::class, 'check'])->mi
 
 Route::get('/join/{id}', [UserController::class, 'join'])->middleware('auth');
 Route::post('/join/verify/{student_id}', [RoomController::class, 'verify'])->middleware('auth');
+Route::post('/score/store/{id}', [SubmissionController::class, 'score_store'])->middleware('auth');
+Route::post('/answer/store/{id}', [SubmissionController::class, 'store'])->middleware('auth');
+
+
+Route::get('/answer/{id}', [SubmissionController::class, 'answer'])->middleware('auth');
+Route::get('/give-score/{id}', [SubmissionController::class, 'giveScore'])->middleware('auth');

@@ -82,7 +82,7 @@
                        <tr>
                            <th scope="row">{{ $cnt }}</th>
                            <td>{{ $hw->assignment_id }}</td>
-                           <td>{{ $hw->question }}</td>
+                           <td>{{ $hw->assignment_question }}</td>
                            <td>{{ $hw->score }}</td>
                            
                            

@@ -62,6 +62,37 @@
 
         <!-- Page Content  -->
     <div id="content" class="p-4 p-md-5 pt-5">
+	<table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Student Id</th>
+                   
+                    <th scope="col">Score</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+            <?php $cnt = 1; ?>
+                   
+                   @foreach( $submissions as $sheet)
+                   
+                       <tr>
+                           <th scope="row">{{ $cnt }}</th>
+                           <td>{{ $sheet->student_id }}</td>
+                           
+                           <td>{{ $sheet->score }}</td>
+						   <td><a class="btn btn-primary" href="{{url('give-score', $sheet->id )}}" role="button">Check the Answer</a></td>
+                           
+                           
+                       </tr>
+                       <?php $cnt++; ?>
+                   @endforeach   
+                   
+  
+                   
+            </tbody>
+        </table>
         
     </div>
         

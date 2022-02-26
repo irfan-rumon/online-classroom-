@@ -76,12 +76,12 @@
             <tbody>
                 <?php $cnt = 1; ?>
                    
-                    @foreach( $hws as $hw){
+                    @foreach( $hws as $hw)
                     
                         <tr>
                             <th scope="row">{{ $cnt }}</th>
                             <td>{{ $hw->question }}</td>
-                            <td><a class="btn btn-primary" href="{{url('check', $hw->id )}}" role="button">Check</a></td>
+                            <td><a class="btn btn-primary" href="{{url('answer', $hw->id )}}" role="button">Write Answers</a></td>
                             
                         </tr>
                         <?php $cnt++; ?>
