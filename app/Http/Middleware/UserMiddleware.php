@@ -4,15 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-
-namespace App\Http\Middleware;
-
-use Closure;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
-class AdminMiddleware
+class UserMiddleware
 {
     /**
      * Handle an incoming request.
@@ -25,15 +20,12 @@ class AdminMiddleware
     {
         if(Auth::check())
         {
-            if(Auth::user()->role == 'admin')
+            if(Auth::user()->role == 'teacher'  || Auth::user()->role == 'student' )
                return $next($request);
             else
-            return redirect('dashboard')->with('message', 'Access denied !!');      
+              return redirect('dashboard')->with('message', 'Access denied !!');      
         }
         else 
             return redirect('dashboard')->with('message', 'Please Login !!');
     }
 }
-
-
-
