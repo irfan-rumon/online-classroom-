@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('room_id');
             $table->string('question');
+            $table->date('deadline');
         });
     }
 

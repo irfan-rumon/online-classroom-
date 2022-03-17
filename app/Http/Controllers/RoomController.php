@@ -26,7 +26,7 @@ class RoomController extends Controller
         $room->room_code = $request->room_code;
         $room->save();
 
-        return redirect()->back();
+        return redirect('dashboard');
     }
 
     public function enter( $id )

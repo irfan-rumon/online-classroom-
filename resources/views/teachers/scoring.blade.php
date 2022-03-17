@@ -66,16 +66,24 @@
                 @csrf
                 <div class="mb-3">
                     <label for="room_code" class="form-label">Question:</label>
-                    <input type="text" class="form-control" id="question" name="question"  value="{{ $question }}" aria-describedby="room_name">
+                    <input type="text" class="form-control" id="question" name="question"  value="{{ $question }}" aria-describedby="room_name" readonly>
                     
                     
                 </div>
                 <div class="mb-3">
                     <label for="room_code" class="form-label">Student Answer:</label>
                 
-                    <input type="textarea" class="form-control" id="answer" name="answer" value="{{$answer}}"aria-describedby="room_code">
+                    <input type="textarea" class="form-control" id="answer" name="answer" value="{{$answer}}"aria-describedby="room_code" readonly>
+                   
                     
                 </div>
+
+                <div class="mb-3">
+                    <label for="room_code" class="form-label">Submitted at:</label>
+                    <input type="textarea" class="form-control" id="ca" name="ca" value="{{now()}}"aria-describedby="room_code" readonly>
+                </div>    
+                
+                    
 
                 <div class="mb-3">
                     <label for="room_code" class="form-label">Score:</label>

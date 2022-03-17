@@ -37,8 +37,9 @@ class AssignmentController extends Controller
         $assignment = new Assignment;
         $assignment->room_id = $room_id;
         $assignment->question = $request->question;
+        $assignment->deadline = $request->deadline;
         $assignment->save();
 
-        return redirect()->back();
+        return redirect('dashboard');
     }
 }

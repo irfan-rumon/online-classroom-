@@ -67,9 +67,15 @@
         <form action="{{ url('assignment/store', $room_id)  }}" method="POST">
           @csrf
           <div class="mb-3">
-            <label for="question" class="form-label">Question::</label>
+            <label for="question" class="form-label">Question:</label>
             <input type="text" class="form-control" id="question" name="question" aria-describedby="question">
+			
+          </div>
+
+		  <div class="mb-3">
+            <label for="deadline" class="form-label">Deadline</label>
             
+			<input type="date" name="deadline"  class="form-control">
           </div>
         
           <button type="submit" class="btn btn-primary">Submit</button>

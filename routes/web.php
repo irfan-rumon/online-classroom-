@@ -57,3 +57,4 @@ Route::get('/view/students', [UserController::class, 'view_students'])->middlewa
 Route::get('/delete/teacher/{id}', [UserController::class, 'delete_teacher'])->middleware('auth');
 Route::get('/delete/course/{id}' ,[RoomController::class, 'delete_course'])->middleware('auth');
 Route::get('/delete/student/{id}', [UserController::class, 'delete_student'])->middleware('auth');
+
